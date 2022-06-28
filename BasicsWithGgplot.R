@@ -4,16 +4,15 @@
 ## Name: Elise Rust
 ## Date: January 17, 2019
 
+# Packages
 library(tidyverse)
 library(ggplot2)
 
+# Data
+undat <- read.csv("Data/un_data.csv") # Read in UN Data from Data folder
+movies <- read.csv("Data/movies.csv") # Read in movies data from Data folder
 
-##### Basic statistics and summaries with summarize
-# a. Read in UN Data from Data folder
-undat <- read.csv("Data/un_data.csv")
-head(undat)
-tail(undat)
-
+##### Basic statistics and summaries with summarize --> UN dataset
 # b. 
 undat %>%
   summarize(median(gini_reported, na.rm = TRUE), median(q1, na.rm = TRUE), median(q5, na.rm = TRUE))
@@ -83,3 +82,6 @@ undat %>%
 undat %>%
   ggplot(aes(x = region_un, y = q1, color = region_un)) +
   geom_boxplot()
+
+
+# 
